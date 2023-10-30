@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Notion Clone
 
-## Getting Started
+## Features
 
-First, run the development server:
+> Sidebar
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Search for Page
+- Settings to change the theme
+- Trash to restore the pages
+- List of pages
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> Menu Bar
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Menu button (Modal)
+  - Full width (toggle)
+  - Hide sidebar (toggle)
+  - Lock page
+  - Delete page
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+> Page
 
-## Learn More
+- ### Cover
+  - Change cover (Upload, Link)
+  - Remove cover
+- ### Page Info
+  - Add icon
+  - Add cover
+  - Page title
+- ### Editor
 
-To learn more about Next.js, take a look at the following resources:
+  - Input with placeholder of "Enter text or press / for commands"
+  - ### After enter "/" open modal
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    Basic blocks
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    - Text
+    - Page
+    - Todo
+    - Heading 1
+    - Heading 2
+    - Heading 3
+    - Bulleted list
+    - Numbered list
+    - Toggle list
+    - Quote
+    - Divider
 
-## Deploy on Vercel
+    Media
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    - Image
+    - Video
+    - Audio
+    - Code
