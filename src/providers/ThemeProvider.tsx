@@ -1,16 +1,22 @@
 "use client";
 
-import React, { useContext } from "react";
-import { ThemeProvider } from "styled-components";
-import { ThemeContext } from "@/context/themeContext";
+import React from "react";
+import styled, { ThemeProvider } from "styled-components";
+import { useTheme } from "@/hooks/useTheme";
+import { IChildren } from "@/globalTypes";
 
-const Theme = ({ children }: { children: React.ReactNode }) => {
+const Title = styled.div`
+	background-color: ${({ theme }) => theme.primaryBackground};
+	color: ${({ theme }) => theme.textColor};
+`;
+
+const Theme = ({ children }: IChildren) => {
 	const darkTheme = {
 		primaryBackground: "#1a1a1a",
 		secondaryBackground: "#212121",
 		grayBackground: "#262626",
 		grayColor: "#8a8a8a",
-		whiteColor: "#d4d4d4",
+		textColor: "#d4d4d4",
 	};
 
 	const lightTheme = {
@@ -18,13 +24,14 @@ const Theme = ({ children }: { children: React.ReactNode }) => {
 		secondaryBackground: "#f6f6f4",
 		grayBackground: "#fafaf9",
 		grayColor: "#999894",
-		whiteColor: "#37352f",
+		textColor: "#37352f",
 	};
 
-	const { theme } = useContext(ThemeContext);
+	const { theme } = useTheme();
 
 	return (
 		<ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
+			<Title>Hello</Title>
 			{children}
 		</ThemeProvider>
 	);

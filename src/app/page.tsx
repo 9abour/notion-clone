@@ -1,13 +1,11 @@
 "use client";
-
-import { ThemeContext } from "@/context/themeContext";
-import { useContext } from "react";
+import { useTheme } from "@/hooks/useTheme";
 
 export default function Home() {
-	const { toggle } = useContext(ThemeContext);
+	const { toggle } = useTheme();
+
 	return (
 		<>
-			<h1>Hello</h1>
 			<button onClick={toggle}>Toggle</button>
 		</>
 	);
