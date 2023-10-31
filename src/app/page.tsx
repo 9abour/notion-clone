@@ -1,12 +1,23 @@
 "use client";
-import { useTheme } from "@/hooks/useTheme";
 
+import { themeContext } from "@/context/themeContext";
+import { useContext } from "react";
+import styled from "styled-components";
+
+const ToggleButton = styled.button`
+	background-color: ${({ theme }) => theme.textColor};
+`;
+
+const Title = styled.h2`
+	color: ${({ theme }) => theme.textColor};
+`;
 export default function Home() {
-	const { toggle } = useTheme();
+	const { toggle } = useContext(themeContext);
 
 	return (
-		<>
-			<button onClick={toggle}>Toggle</button>
-		</>
+		<div>
+			<ToggleButton onClick={toggle}>Toggle</ToggleButton>
+			<Title>Hello</Title>
+		</div>
 	);
 }

@@ -1,16 +1,13 @@
 "use client";
 
-import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import { IPropsDefaultTheme } from "@/globalTypes";
 import { useTheme } from "@/hooks/useTheme";
-import { IChildren } from "@/globalTypes";
+import React, { useEffect, useState } from "react";
+import { ThemeProvider } from "styled-components";
 
-const Title = styled.div`
-	background-color: ${({ theme }) => theme.primaryBackground};
-	color: ${({ theme }) => theme.textColor};
-`;
+const Theme = ({ children, defaultTheme }: IPropsDefaultTheme) => {
+	const [primaryTheme, setPrimaryTheme] = useState(defaultTheme);
 
-const Theme = ({ children }: IChildren) => {
 	const darkTheme = {
 		primaryBackground: "#1a1a1a",
 		secondaryBackground: "#212121",
@@ -29,9 +26,12 @@ const Theme = ({ children }: IChildren) => {
 
 	const { theme } = useTheme();
 
+	useEffect(() => {
+		setPrimaryTheme(theme);
+	}, [theme]);
+
 	return (
-		<ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
-			<Title>Hello</Title>
+		<ThemeProvider theme={primaryTheme === "dark" ? darkTheme : lightTheme}>
 			{children}
 		</ThemeProvider>
 	);

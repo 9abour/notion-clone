@@ -1,8 +1,10 @@
 import React from "react";
-import ThemeProvider from "@/providers/ThemeProvider";
 import PageLoader from "@/components/common/Loading/PageLoader";
 import { IChildren } from "@/globalTypes";
+import { cookies } from "next/headers";
 import "./globals.css";
+import { GlobalStyles } from "@/styles/globals";
+import ThemeContext from "@/context/themeContext";
 
 export const metadata = {
 	title: "Next.js",
@@ -10,13 +12,16 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: IChildren) {
+	let theme = cookies().get("theme");
+
 	return (
-		<html lang="en">
-			<body>
-				<ThemeProvider>
-					<PageLoader />
+		<html lang="en" suppressHydrationWarning>
+			<body className={`${theme?.value}`}>
+				<ThemeContext defaultTheme={theme?.value}>
+					<GlobalStyles />
+					<PageLoader theme={theme?.value} />
 					{children}
-				</ThemeProvider>
+				</ThemeContext>
 			</body>
 		</html>
 	);

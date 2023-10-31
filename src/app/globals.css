@@ -1,12 +1,8 @@
-html.dark body {
+body.dark {
 	background-color: #1a1a1a;
 	color: #d4d4d4;
 }
-html.light body {
+body.light {
 	background-color: #ffffff;
 	color: #37352f;
-}
-
-html.dark .page-loader {
-	background-color: black !important;
 }
