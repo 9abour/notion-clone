@@ -1,10 +1,10 @@
 import React from "react";
 import PageLoader from "@/components/common/Loading/PageLoader";
 import { IChildren } from "@/globalTypes";
-import { cookies } from "next/headers";
 import "./globals.css";
 import { GlobalStyles } from "@/styles/globals";
 import ThemeContext from "@/context/themeContext";
+import { getTheme } from "@/helpers/getTheme";
 
 export const metadata = {
 	title: "Notion",
@@ -12,14 +12,14 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: IChildren) {
-	let theme = cookies().get("theme");
+	let theme = getTheme();
 
 	return (
-		<html lang="en">
-			<body className={`${theme?.value}`}>
-				<ThemeContext defaultTheme={theme?.value}>
+		<html lang="en" suppressHydrationWarning data-theme={theme}>
+			<body>
+				<ThemeContext defaultTheme={theme}>
 					<GlobalStyles />
-					<PageLoader theme={theme?.value} />
+					<PageLoader theme={theme} />
 					{children}
 				</ThemeContext>
 			</body>

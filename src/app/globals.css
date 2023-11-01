@@ -1,8 +1,8 @@
-body.dark {
+html[data-theme="dark"] body {
 	background-color: #1a1a1a;
 	color: #d4d4d4;
 }
-body.light {
+html[data-theme="light"] body {
 	background-color: #ffffff;
 	color: #37352f;
 }

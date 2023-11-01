@@ -36,6 +36,8 @@ const ThemeContext = ({ children, defaultTheme }: IPropsDefaultTheme) => {
 		setTheme(newTheme);
 
 		Cookies.set("theme", newTheme);
+
+		document.documentElement.setAttribute("data-theme", newTheme);
 	};
 
 	return (
