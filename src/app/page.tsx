@@ -16,6 +16,7 @@ export default function Home() {
 
 	const handleToggle = () => {
 		toggle();
+
 		setTheme(prev => (prev === "dark" ? "light" : "dark"));
 	};
 
