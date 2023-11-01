@@ -13,5 +13,5 @@ it("Should Html tag have data theme", () => {
 
 	fireEvent.click(setThemeBtn);
 
-	expect(setThemeBtn).toHaveTextContent("dark");
+	expect(setThemeBtn).toHaveTextContent("dasrk");
 });
