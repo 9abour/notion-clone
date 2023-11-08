@@ -1,7 +1,7 @@
 "use client";
 
 import { themeContext } from "@/context/themeContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 
 const ToggleButton = styled.button`
@@ -10,19 +10,11 @@ const ToggleButton = styled.button`
 `;
 
 export default function Home() {
-	const { toggle } = useContext(themeContext);
-
-	const [theme, setTheme] = useState("dark");
-
-	const handleToggle = () => {
-		toggle();
-
-		setTheme(prev => (prev === "dark" ? "light" : "dark"));
-	};
+	const { toggle, theme } = useContext(themeContext);
 
 	return (
 		<div>
-			<ToggleButton onClick={handleToggle}>{theme}</ToggleButton>
+			<ToggleButton onClick={toggle}>{theme}</ToggleButton>
 		</div>
 	);
 }

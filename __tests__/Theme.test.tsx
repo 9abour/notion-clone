@@ -1,17 +1,25 @@
 import Home from "@/app/page";
+import ThemeContext from "@/context/themeContext";
 import { render, screen, fireEvent } from "@testing-library/react";
-import React from "react";
 
-it("Should Html tag have data theme", () => {
-	render(<Home />);
+it("Should have initial theme and toggle the theme", () => {
+	const initialTheme = "dark";
 
-	const setThemeBtn = screen.getByText("dark");
+	render(
+		<ThemeContext defaultTheme={initialTheme}>
+			<Home />
+		</ThemeContext>
+	);
+
+	const setThemeBtn = screen.getByText(initialTheme);
+
+	expect(screen.getByText("dark")).toBeInTheDocument();
 
 	fireEvent.click(setThemeBtn);
 
-	expect(setThemeBtn).toHaveTextContent("light");
+	expect(screen.getByText("light")).toBeInTheDocument();
 
 	fireEvent.click(setThemeBtn);
 
-	expect(setThemeBtn).toHaveTextContent("dark");
+	expect(screen.getByText("dark")).toBeInTheDocument();
 });
